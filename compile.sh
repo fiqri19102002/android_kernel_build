@@ -58,8 +58,12 @@ else
     exit 1
 fi
 
-ZIPNAME=GKI-custom-marble-"$ZIP_DATE"
-FIXED_ZIPNAME="$ZIPNAME.zip"
+if [ -d "$KERN_DIR"/KernelSU ]; then
+    ZIPNAME=GKI-custom-marble-KSU
+else
+    ZIPNAME=GKI-custom-marble
+fi
+FIXED_ZIPNAME="$ZIPNAME-$ZIP_DATE.zip"
 
 cp "$IMG_DIR"/Image AnyKernel3
 cd AnyKernel3
